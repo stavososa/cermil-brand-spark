@@ -28,9 +28,9 @@ export type SizeDetail = {
   desc: string;
 };
 
-import branco2 from "@/assets/branco-2.jpg";
-import rajado2 from "@/assets/rajado-2.jpg";
-import blend2 from "@/assets/blend-2.jpg";
+import gallery1 from "@/assets/gallery-1.png";
+import gallery2 from "@/assets/gallery-2.png";
+import gallery3 from "@/assets/gallery-3.jpg";
 
 export type ProntaEntregaProduct = {
   id: string;
@@ -63,12 +63,12 @@ export const prontaEntregaProducts: ProntaEntregaProduct[] = [
   {
     id: "seixo-branco",
     name: "Seixo Branco",
-    img: branco2,
+    img: gallery1,
     type: "pronta-entrega",
     desc: "Quartzo de alta alvura, indicado para composições de maior contraste e projetos que valorizam iluminação e limpeza visual.",
     granulometrias,
     badge: "Mais vendido",
-    gallery: [branco2, seixoBrancoWood, seixoBrancoSack, seixoBrancoGarden],
+    gallery: [gallery1, seixoBrancoWood, seixoBrancoSack, seixoBrancoGarden],
     pricing: {
       "Grande: ~100 mm": { "10 kg": "R$ 20", "25 kg": "R$ 47", "100 kg": "R$ 166", "500 kg": "R$ 755", "1.000 kg": "R$ 1.440" },
       "Médio: ~50 mm": { "10 kg": "R$ 22", "25 kg": "R$ 51", "100 kg": "R$ 182", "500 kg": "R$ 830", "1.000 kg": "R$ 1.580" },
@@ -93,12 +93,12 @@ export const prontaEntregaProducts: ProntaEntregaProduct[] = [
   {
     id: "seixo-rajado",
     name: "Seixo Rajado",
-    img: rajado2,
+    img: gallery3,
     type: "pronta-entrega",
     desc: "Seixo com variações naturais em tons terrosos e avermelhados, ideal para jardins rústicos e orgânicos.",
     granulometrias,
     badge: null,
-    gallery: [rajado2, seixoRajadoWood, gallery3, seixoRajadoSack, seixoRajadoGarden],
+    gallery: [gallery3, seixoRajadoWood, seixoRajadoSack, seixoRajadoGarden],
     pricing: {
       "Grande: ~100 mm": { "10 kg": "R$ 19", "25 kg": "R$ 43", "100 kg": "R$ 152", "500 kg": "R$ 695", "1.000 kg": "R$ 1.320" },
       "Médio: ~50 mm": { "10 kg": "R$ 20", "25 kg": "R$ 47", "100 kg": "R$ 167", "500 kg": "R$ 760", "1.000 kg": "R$ 1.450" },
@@ -123,12 +123,12 @@ export const prontaEntregaProducts: ProntaEntregaProduct[] = [
   {
     id: "seixo-natural",
     name: "Seixo Mix Blend",
-    img: blend2,
+    img: gallery2,
     type: "pronta-entrega",
     desc: "Blend natural das cores da jazida. Visual orgânico e autêntico, com variação equilibrada de tons.",
     granulometrias,
     badge: null,
-    gallery: [blend2, seixoNaturalWood, seixoNaturalSack, seixoNaturalGarden],
+    gallery: [gallery2, seixoNaturalWood, seixoNaturalSack, seixoNaturalGarden],
     pricing: {
       "Grande: ~100 mm": { "10 kg": "R$ 17", "25 kg": "R$ 39", "100 kg": "R$ 138", "500 kg": "R$ 630", "1.000 kg": "R$ 1.200" },
       "Médio: ~50 mm": { "10 kg": "R$ 19", "25 kg": "R$ 43", "100 kg": "R$ 152", "500 kg": "R$ 695", "1.000 kg": "R$ 1.320" },
