@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import logo from "@/assets/logo-cermil.png";
 import hero from "@/assets/seixo-branco-garden.jpg";
 import product from "@/assets/seixo-branco-wood.jpg";
@@ -400,30 +399,15 @@ const Index = () => {
           </div>
         </div>
       </footer>
-=======
-// Update this page (the content is just a fallback if you fail to update the page)
-
-// IMPORTANT: Fully REPLACE this with your own code
-const PlaceholderIndex = () => {
-  // PLACEHOLDER: Replace this entire return statement with the user's app.
-  // The inline background color is intentionally not part of the design system.
-  return (
-    <div className="flex min-h-screen items-center justify-center" style={{ backgroundColor: '#fcfbf8' }}>
-      <img data-lovable-blank-page-placeholder="REMOVE_THIS" src="/placeholder.svg" alt="Your app will live here!" />
->>>>>>> c50d4b1 (template: vite_react_shadcn_ts_2026-04-20)
     </div>
   );
 };
 
-<<<<<<< HEAD
 const Field = ({ label, name, type = "text" }: { label: string; name: string; type?: string }) => (
   <div>
     <label htmlFor={name} className="text-[11px] uppercase tracking-[0.3em] text-background/60">{label}</label>
     <input id={name} name={name} type={type} className="mt-2 w-full bg-transparent border-b border-background/30 focus:border-accent focus:outline-none py-3 text-background transition-colors" />
   </div>
 );
-=======
-const Index = PlaceholderIndex;
->>>>>>> c50d4b1 (template: vite_react_shadcn_ts_2026-04-20)
 
 export default Index;

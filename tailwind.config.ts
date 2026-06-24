@@ -13,7 +13,6 @@ export default {
       },
     },
     extend: {
-<<<<<<< HEAD
       fontFamily: {
         display: ['Playfair Display', 'Georgia', 'serif'],
         sans: ['Inter', 'system-ui', 'sans-serif'],
@@ -32,9 +31,6 @@ export default {
         ochre: 'hsl(var(--ochre))',
         stone: 'hsl(var(--stone))',
         bone: 'hsl(var(--bone))',
-=======
-      colors: {
->>>>>>> c50d4b1 (template: vite_react_shadcn_ts_2026-04-20)
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
