@@ -57,12 +57,22 @@ async function processImage(urlPath, placa, index) {
     // Convert HEIC to JPEG
     if (fileExt === '.heic' || fileExt === '.heif') {
       console.log(`   🔄 Convertendo HEIC para JPEG...`);
-      buffer = await heicConvert({
-        buffer: buffer,
-        format: 'JPEG',
-        quality: 0.6 // Reduzindo qualidade conforme solicitado
-      });
-      fileExt = '.jpg';
+      try {
+        buffer = await heicConvert({
+          buffer: buffer,
+          format: 'JPEG',
+          quality: 0.6 // Reduzindo qualidade conforme solicitado
+        });
+        fileExt = '.jpg';
+      } catch (convertErr) {
+        if (convertErr.message.includes('not a HEIC image')) {
+          console.warn(`   ⚠️ O arquivo não parece ser um HEIC válido. Verificando se já é JPEG...`);
+          // Alguns iPhones salvam jpg com extensão heic, vamos tentar subir como jpg direto.
+          fileExt = '.jpg';
+        } else {
+          throw convertErr;
+        }
+      }
     } else if (fileExt === '.png') {
       contentType = 'image/png';
     } else if (fileExt === '.webp') {
