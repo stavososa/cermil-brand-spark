@@ -17,6 +17,9 @@ import seixoNaturalSack from "@/assets/seixo-natural-sack.jpg";
 import seixoNaturalWood from "@/assets/seixo-natural-wood.jpg";
 import seixoNaturalGarden from "@/assets/seixo-natural-garden.jpg";
 
+import ametista1 from "@/assets/ametista-1.jpg";
+import ametista2 from "@/assets/ametista-2.jpg";
+
 const granulometrias = ["Fino: ~5 mm", "Médio: ~50 mm", "Grande: ~100 mm"];
 
 export type SizeDetail = {
