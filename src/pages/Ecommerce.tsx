@@ -59,7 +59,7 @@ const prontaEntregaProducts: ProntaEntregaProduct[] = [
   {
     id: "seixo-branco",
     name: "Seixo Branco",
-    img: seixoBranco,
+    img: branco1,
     type: "pronta-entrega",
     desc: "Quartzo de alta alvura, indicado para composições de maior contraste e projetos que valorizam iluminação e limpeza visual.",
     granulometrias,
@@ -73,7 +73,7 @@ const prontaEntregaProducts: ProntaEntregaProduct[] = [
   {
     id: "seixo-rajado",
     name: "Seixo Rajado",
-    img: seixoRajado,
+    img: rajado1,
     type: "pronta-entrega",
     desc: "Seixo com variações naturais em tons terrosos e avermelhados, ideal para jardins rústicos e orgânicos.",
     granulometrias,
@@ -87,7 +87,7 @@ const prontaEntregaProducts: ProntaEntregaProduct[] = [
   {
     id: "seixo-natural",
     name: "Seixo Natural (blend)",
-    img: seixoNatural,
+    img: blend1,
     type: "pronta-entrega",
     desc: "Blend natural das cores da jazida. Visual orgânico e autêntico, com variação equilibrada de tons.",
     granulometrias,
