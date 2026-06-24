@@ -4,7 +4,10 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
+<<<<<<< HEAD
 import Ecommerce from "./pages/Ecommerce.tsx";
+=======
+>>>>>>> c50d4b1 (template: vite_react_shadcn_ts_2026-04-20)
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -17,7 +20,10 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+<<<<<<< HEAD
           <Route path="/ecommerce" element={<Ecommerce />} />
+=======
+>>>>>>> c50d4b1 (template: vite_react_shadcn_ts_2026-04-20)
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

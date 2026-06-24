@@ -1,9 +1,16 @@
 {
+<<<<<<< HEAD
   "name": "cermil-brand-spark",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "packageManager": "npm@10.9.2",
+=======
+  "name": "vite_react_shadcn_ts",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+>>>>>>> c50d4b1 (template: vite_react_shadcn_ts_2026-04-20)
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -84,7 +91,11 @@
     "tailwindcss": "^3.4.17",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.38.0",
+<<<<<<< HEAD
     "vite": "^7.3.5",
+=======
+    "vite": "^5.4.19",
+>>>>>>> c50d4b1 (template: vite_react_shadcn_ts_2026-04-20)
     "vitest": "^3.2.4"
   }
 }

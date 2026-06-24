@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 import { useState, useMemo } from "react";
 import { ArrowLeft, ArrowUpRight, Truck, ShoppingBag, MessageCircle, CheckCircle2, Star, Globe, Package, MapPin, Phone, Mail } from "lucide-react";
 import logo from "@/assets/logo-cermil.png";
@@ -20,14 +20,14 @@ import pkg1000 from "@/assets/pkg-1000kg.jpg";
 type FilterType = "all" | "pronta-entrega" | "sob-consulta";
 
 const weights = [
-  { label: "10 kg",    img: pkg10,   nota: "Saco reforçado · varejo e hobbistas",           disponibilidade: "Vendas locais e online" },
-  { label: "25 kg",   img: pkg25,   nota: "Saco de ráfia · gardens e paisagistas",           disponibilidade: "Vendas locais e online" },
-  { label: "100 kg",  img: pkg100,  nota: "Saco industrial · construtoras e atacado",        disponibilidade: "Vendas locais e online" },
-  { label: "500 kg",  img: pkg500,  nota: "Big bag intermediário · revenda estruturada",     disponibilidade: "Entregas locais (região direta)" },
-  { label: "1.000 kg",img: pkg1000, nota: "Big bag FIBC · indústria e contratos",            disponibilidade: "Entregas locais (região direta)" },
+  { label: "10 kg",    img: pkg10,   nota: "Saco reforÃ§ado Â· varejo e hobbistas",           disponibilidade: "Vendas locais e online" },
+  { label: "25 kg",   img: pkg25,   nota: "Saco de rÃ¡fia Â· gardens e paisagistas",           disponibilidade: "Vendas locais e online" },
+  { label: "100 kg",  img: pkg100,  nota: "Saco industrial Â· construtoras e atacado",        disponibilidade: "Vendas locais e online" },
+  { label: "500 kg",  img: pkg500,  nota: "Big bag intermediÃ¡rio Â· revenda estruturada",     disponibilidade: "Entregas locais (regiÃ£o direta)" },
+  { label: "1.000 kg",img: pkg1000, nota: "Big bag FIBC Â· indÃºstria e contratos",            disponibilidade: "Entregas locais (regiÃ£o direta)" },
 ];
 
-const granulometrias = ["Fino: ~5 mm", "Médio: ~50 mm", "Grande: ~100 mm"];
+const granulometrias = ["Fino: ~5 mm", "MÃ©dio: ~50 mm", "Grande: ~100 mm"];
 
 type ProntaEntregaProduct = {
   id: string;
@@ -37,11 +37,6 @@ type ProntaEntregaProduct = {
   desc: string;
   granulometrias: string[];
   badge: string | null;
-  pricing?: {
-    [granulometria: string]: {
-      [peso: string]: string;
-    };
-  };
 };
 
 type SobConsultaProduct = {
@@ -61,42 +56,27 @@ const prontaEntregaProducts: ProntaEntregaProduct[] = [
     name: "Seixo Branco",
     img: seixoBranco,
     type: "pronta-entrega",
-    desc: "Quartzo de alta alvura, indicado para composições de maior contraste e projetos que valorizam iluminação e limpeza visual.",
+    desc: "Quartzo de alta alvura, indicado para composiÃ§Ãµes de maior contraste e projetos que valorizam iluminaÃ§Ã£o e limpeza visual.",
     granulometrias,
     badge: "Mais vendido",
-    pricing: {
-      "Grande: ~100 mm": { "10 kg": "R$ 20", "25 kg": "R$ 47", "100 kg": "R$ 166", "500 kg": "R$ 755", "1.000 kg": "R$ 1.440" },
-      "Médio: ~50 mm": { "10 kg": "R$ 22", "25 kg": "R$ 51", "100 kg": "R$ 182", "500 kg": "R$ 830", "1.000 kg": "R$ 1.580" },
-      "Fino: ~5 mm": { "10 kg": "R$ 24", "25 kg": "R$ 56", "100 kg": "R$ 199", "500 kg": "R$ 910", "1.000 kg": "R$ 1.730" }
-    }
   },
   {
     id: "seixo-rajado",
     name: "Seixo Rajado",
     img: seixoRajado,
     type: "pronta-entrega",
-    desc: "Seixo com variações naturais em tons terrosos e avermelhados, ideal para jardins rústicos e orgânicos.",
+    desc: "Seixo com variaÃ§Ãµes naturais em tons terrosos e avermelhados, ideal para jardins rÃºsticos e orgÃ¢nicos.",
     granulometrias,
     badge: null,
-    pricing: {
-      "Grande: ~100 mm": { "10 kg": "R$ 19", "25 kg": "R$ 43", "100 kg": "R$ 152", "500 kg": "R$ 695", "1.000 kg": "R$ 1.320" },
-      "Médio: ~50 mm": { "10 kg": "R$ 20", "25 kg": "R$ 47", "100 kg": "R$ 167", "500 kg": "R$ 760", "1.000 kg": "R$ 1.450" },
-      "Fino: ~5 mm": { "10 kg": "R$ 22", "25 kg": "R$ 51", "100 kg": "R$ 182", "500 kg": "R$ 830", "1.000 kg": "R$ 1.580" }
-    }
   },
   {
     id: "seixo-natural",
     name: "Seixo Natural (blend)",
     img: seixoNatural,
     type: "pronta-entrega",
-    desc: "Blend natural das cores da jazida. Visual orgânico e autêntico, com variação equilibrada de tons.",
+    desc: "Blend natural das cores da jazida. Visual orgÃ¢nico e autÃªntico, com variaÃ§Ã£o equilibrada de tons.",
     granulometrias,
     badge: null,
-    pricing: {
-      "Grande: ~100 mm": { "10 kg": "R$ 17", "25 kg": "R$ 39", "100 kg": "R$ 138", "500 kg": "R$ 630", "1.000 kg": "R$ 1.200" },
-      "Médio: ~50 mm": { "10 kg": "R$ 19", "25 kg": "R$ 43", "100 kg": "R$ 152", "500 kg": "R$ 695", "1.000 kg": "R$ 1.320" },
-      "Fino: ~5 mm": { "10 kg": "R$ 20", "25 kg": "R$ 47", "100 kg": "R$ 166", "500 kg": "R$ 755", "1.000 kg": "R$ 1.440" }
-    }
   },
 ];
 
@@ -106,7 +86,7 @@ const sobConsultaProducts: SobConsultaProduct[] = [
     name: "Ametistas e derivados",
     img: ametistas,
     type: "sob-consulta",
-    desc: "Portfólio não padronizado, alta variabilidade natural (cor, forma, textura, raridade). Comercialização exclusivamente sob consulta.",
+    desc: "PortfÃ³lio nÃ£o padronizado, alta variabilidade natural (cor, forma, textura, raridade). ComercializaÃ§Ã£o exclusivamente sob consulta.",
     badge: "Exclusivo",
   },
   {
@@ -114,7 +94,7 @@ const sobConsultaProducts: SobConsultaProduct[] = [
     name: "Quartzo Big Rocks",
     img: bigRocks,
     type: "sob-consulta",
-    desc: "Peças diferenciadas de quartzo em tamanhos grandes. Forma natural ou polida/trabalhada sob especificação do cliente.",
+    desc: "PeÃ§as diferenciadas de quartzo em tamanhos grandes. Forma natural ou polida/trabalhada sob especificaÃ§Ã£o do cliente.",
     badge: null,
   },
   {
@@ -122,26 +102,20 @@ const sobConsultaProducts: SobConsultaProduct[] = [
     name: "Outras Pedras Naturais",
     img: outrasPedras,
     type: "sob-consulta",
-    desc: "Pedras com potencial decorativo singular. Ajustes técnicos para uso seguro: remoção de pontas e planeamento da base.",
+    desc: "Pedras com potencial decorativo singular. Ajustes tÃ©cnicos para uso seguro: remoÃ§Ã£o de pontas e planeamento da base.",
     badge: null,
   },
 ];
 
 const allProducts: Product[] = [...prontaEntregaProducts, ...sobConsultaProducts];
 
-// ─── Product Card ───────────────────────────────────────────────────────────
+// â”€â”€â”€ Product Card â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 const ProductCard = ({ product }: { product: Product }) => {
   const isPE = product.type === "pronta-entrega";
   const [selectedWeight, setSelectedWeight] = useState<number | null>(null);
-  const [selectedGranulometria, setSelectedGranulometria] = useState<string | null>(null);
   const activeWeight = selectedWeight !== null ? weights[selectedWeight] : null;
   const displayImg = activeWeight ? activeWeight.img : product.img;
-
-  let priceStr = null;
-  if (product.type === "pronta-entrega" && selectedWeight !== null && selectedGranulometria !== null && product.pricing) {
-    priceStr = product.pricing[selectedGranulometria]?.[weights[selectedWeight].label];
-  }
 
   return (
     <article className="group flex flex-col border border-border bg-card overflow-hidden hover:shadow-[0_12px_40px_-12px_hsl(30_20%_20%/0.18)] transition-shadow duration-300">
@@ -180,30 +154,21 @@ const ProductCard = ({ product }: { product: Product }) => {
           <p className="mt-2 text-sm text-muted-foreground leading-relaxed line-clamp-2">{product.desc}</p>
         </div>
 
-        {/* Granulometrias — pronta entrega only */}
+        {/* Granulometrias â€” pronta entrega only */}
         {isPE && product.type === "pronta-entrega" && (
           <div>
-            <p className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground mb-2">Granulometria disponível</p>
+            <p className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground mb-2">Granulometria disponÃ­vel</p>
             <div className="flex flex-wrap gap-1.5">
               {product.granulometrias.map((g) => (
-                <button
-                  key={g}
-                  type="button"
-                  onClick={() => setSelectedGranulometria(selectedGranulometria === g ? null : g)}
-                  className={`text-[10px] uppercase tracking-[0.12em] px-2.5 py-1.5 border transition-colors ${
-                    selectedGranulometria === g
-                      ? "border-accent bg-accent text-accent-foreground"
-                      : "border-border text-muted-foreground hover:border-foreground/40 hover:text-foreground"
-                  }`}
-                >
+                <span key={g} className="text-[10px] uppercase tracking-[0.12em] bg-muted px-2.5 py-1 text-muted-foreground border border-border">
                   {g}
-                </button>
+                </span>
               ))}
             </div>
           </div>
         )}
 
-        {/* Weight selector — pronta entrega only */}
+        {/* Weight selector â€” pronta entrega only */}
         {isPE && (
           <div>
             <p className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground mb-2">Quantidade</p>
@@ -226,7 +191,7 @@ const ProductCard = ({ product }: { product: Product }) => {
             {activeWeight && (
               <p className="mt-2 flex items-center gap-1.5 text-[10px] text-accent">
                 <Truck className="w-3 h-3" />
-                {activeWeight.nota} · {activeWeight.disponibilidade}
+                {activeWeight.nota} Â· {activeWeight.disponibilidade}
               </p>
             )}
           </div>
@@ -237,22 +202,13 @@ const ProductCard = ({ product }: { product: Product }) => {
           <div className="flex items-start gap-2 p-3 bg-muted/50 border border-border">
             <Star className="w-3.5 h-3.5 text-accent mt-0.5 flex-shrink-0" />
             <p className="text-[11px] text-muted-foreground leading-relaxed">
-              Ornamental · exclusivo · produzido sob medida. Entre em contato para consultar disponibilidade e especificações.
+              Ornamental Â· exclusivo Â· produzido sob medida. Entre em contato para consultar disponibilidade e especificaÃ§Ãµes.
             </p>
           </div>
         )}
 
-        {/* CTA button — styled like "Add to cart" */}
-        <div className="mt-auto pt-1 flex flex-col gap-3">
-          {isPE && (
-            <div className="h-8 flex items-end">
-              {priceStr ? (
-                <p className="font-display text-2xl text-foreground">{priceStr}</p>
-              ) : (
-                <p className="text-[10px] text-muted-foreground uppercase tracking-[0.1em]">Selecione opções para preço</p>
-              )}
-            </div>
-          )}
+        {/* CTA button â€” styled like "Add to cart" */}
+        <div className="mt-auto pt-1">
           <Link
             to="/#contato"
             className={`flex items-center justify-center gap-2 w-full py-3.5 text-xs uppercase tracking-[0.25em] font-medium transition-all ${
@@ -264,7 +220,7 @@ const ProductCard = ({ product }: { product: Product }) => {
             {isPE ? (
               <>
                 <ShoppingBag className="w-3.5 h-3.5" />
-                Solicitar Orçamento
+                Solicitar OrÃ§amento
               </>
             ) : (
               <>
@@ -279,7 +235,7 @@ const ProductCard = ({ product }: { product: Product }) => {
   );
 };
 
-// ─── Main Page ───────────────────────────────────────────────────────────────
+// â”€â”€â”€ Main Page â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 const Ecommerce = () => {
   const [activeFilter, setActiveFilter] = useState<FilterType>("all");
@@ -304,7 +260,7 @@ const Ecommerce = () => {
           <div className="max-w-7xl mx-auto px-6 lg:px-10 h-full flex items-center justify-between gap-4">
             <span className="hidden md:flex items-center gap-1.5 text-[10px] text-background/50">
               <MapPin className="w-3 h-3 text-accent flex-shrink-0" />
-              Vila Salgado dos Moreiras, SN – Cágado, São Gonçalo do Amarante – CE, 62670-000
+              Vila Salgado dos Moreiras, SN â€“ CÃ¡gado, SÃ£o GonÃ§alo do Amarante â€“ CE, 62670-000
             </span>
             <div className="flex items-center gap-5 text-[10px] text-background/50 ml-auto">
               <a href="tel:+5585991124238" className="flex items-center gap-1.5 hover:text-accent transition-colors">
@@ -337,19 +293,19 @@ const Ecommerce = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-6">
-            <Link to="/" className="hover:text-foreground transition-colors">Início</Link>
+            <Link to="/" className="hover:text-foreground transition-colors">InÃ­cio</Link>
             <span>/</span>
             <span className="text-foreground">Produtos</span>
           </nav>
 
           <div className="flex flex-col lg:flex-row lg:items-end gap-6 justify-between">
             <div>
-              <p className="text-xs uppercase tracking-[0.4em] text-accent mb-3">Catálogo · Pronta entrega & sob consulta</p>
+              <p className="text-xs uppercase tracking-[0.4em] text-accent mb-3">CatÃ¡logo Â· Pronta entrega & sob consulta</p>
               <h1 className="font-display font-bold text-4xl lg:text-5xl leading-[1.05] text-balance">
                 Seixo de Quartzo &amp; <em className="text-accent not-italic">Pedras Naturais</em>
               </h1>
               <p className="mt-3 text-muted-foreground max-w-xl">
-                Pronta entrega de 10 kg a 1.000 kg e linha ornamental exclusiva sob consulta. São Gonçalo do Amarante – CE.
+                Pronta entrega de 10 kg a 1.000 kg e linha ornamental exclusiva sob consulta. SÃ£o GonÃ§alo do Amarante â€“ CE.
               </p>
             </div>
 
@@ -369,7 +325,7 @@ const Ecommerce = () => {
         </div>
       </section>
 
-      {/* FILTER BAR — sticky */}
+      {/* FILTER BAR â€” sticky */}
       <div className="sticky top-16 z-40 bg-background/95 backdrop-blur-sm border-b border-border">
         <div className="max-w-7xl mx-auto px-6 lg:px-10 py-3 flex items-center justify-between gap-4">
           {/* Category tabs */}
@@ -415,39 +371,39 @@ const Ecommerce = () => {
         </div>
       </main>
 
-      {/* ESPECIFICAÇÕES — seção completa */}
+      {/* ESPECIFICAÃ‡Ã•ES â€” seÃ§Ã£o completa */}
       <section className="border-t border-border">
 
-        {/* Header da seção */}
+        {/* Header da seÃ§Ã£o */}
         <div className="bg-foreground text-background py-14 lg:py-20">
           <div className="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-12 gap-10 items-end">
             <div className="lg:col-span-7">
-              <p className="text-[10px] uppercase tracking-[0.4em] text-accent mb-4">Especificações · Pronta entrega</p>
+              <p className="text-[10px] uppercase tracking-[0.4em] text-accent mb-4">EspecificaÃ§Ãµes Â· Pronta entrega</p>
               <h2 className="font-display font-bold text-3xl lg:text-5xl leading-[1.05] text-background text-balance">
                 Quantidades & <em className="text-accent not-italic">Granulometrias</em>
               </h2>
             </div>
             <p className="lg:col-span-4 lg:col-start-9 text-background/60 leading-relaxed text-sm">
-              Linha principal dedicada ao seixo de quartzo, com foco em aplicações decorativas, paisagismo e revenda. Cada produto disponível nas granulometrias e quantidades padrão abaixo.
+              Linha principal dedicada ao seixo de quartzo, com foco em aplicaÃ§Ãµes decorativas, paisagismo e revenda. Cada produto disponÃ­vel nas granulometrias e quantidades padrÃ£o abaixo.
             </p>
           </div>
         </div>
 
-        {/* Conteúdo em duas colunas */}
+        {/* ConteÃºdo em duas colunas */}
         <div className="max-w-7xl mx-auto px-6 lg:px-10 py-16 lg:py-24 grid lg:grid-cols-2 gap-16 lg:gap-24">
 
-          {/* ── Quantidades ── */}
+          {/* â”€â”€ Quantidades â”€â”€ */}
           <div>
             <p className="text-[10px] uppercase tracking-[0.4em] text-accent mb-8">Quantidades a pronta entrega</p>
 
             {/* Tabela de quantidades */}
             <div className="space-y-0 border border-border divide-y divide-border">
               {[
-                { kg: "10 kg",     icon: <Package className="w-4 h-4" />,  nota: "Saco reforçado · varejo e hobbistas" },
-                { kg: "25 kg",     icon: <Package className="w-4 h-4" />,  nota: "Saco de ráfia · gardens e paisagistas" },
-                { kg: "100 kg",    icon: <Package className="w-4 h-4" />,  nota: "Saco industrial · construtoras e atacado" },
-                { kg: "500 kg",    icon: <Truck className="w-4 h-4" />,    nota: "Big bag intermediário · revenda estruturada" },
-                { kg: "1.000 kg",  icon: <Truck className="w-4 h-4" />,    nota: "Big bag FIBC · indústria e contratos" },
+                { kg: "10 kg",     icon: <Package className="w-4 h-4" />,  nota: "Saco reforÃ§ado Â· varejo e hobbistas" },
+                { kg: "25 kg",     icon: <Package className="w-4 h-4" />,  nota: "Saco de rÃ¡fia Â· gardens e paisagistas" },
+                { kg: "100 kg",    icon: <Package className="w-4 h-4" />,  nota: "Saco industrial Â· construtoras e atacado" },
+                { kg: "500 kg",    icon: <Truck className="w-4 h-4" />,    nota: "Big bag intermediÃ¡rio Â· revenda estruturada" },
+                { kg: "1.000 kg",  icon: <Truck className="w-4 h-4" />,    nota: "Big bag FIBC Â· indÃºstria e contratos" },
               ].map((q) => (
                 <div key={q.kg} className="flex items-center justify-between gap-4 px-4 py-4 bg-card hover:bg-muted/40 transition-colors">
                   <div className="flex items-center gap-3">
@@ -459,18 +415,18 @@ const Ecommerce = () => {
               ))}
             </div>
 
-            {/* Política de disponibilidade */}
+            {/* PolÃ­tica de disponibilidade */}
             <div className="mt-8 space-y-4">
-              <p className="text-[10px] uppercase tracking-[0.4em] text-muted-foreground mb-4">Política de disponibilidade</p>
+              <p className="text-[10px] uppercase tracking-[0.4em] text-muted-foreground mb-4">PolÃ­tica de disponibilidade</p>
 
               <div className="flex items-start gap-4 p-4 border border-border bg-card">
                 <div className="mt-0.5 w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0">
                   <Globe className="w-4 h-4 text-accent" />
                 </div>
                 <div>
-                  <p className="font-display text-base text-foreground">10 kg · 25 kg · 100 kg</p>
+                  <p className="font-display text-base text-foreground">10 kg Â· 25 kg Â· 100 kg</p>
                   <p className="mt-1 text-sm text-muted-foreground leading-relaxed">
-                    Disponíveis para <span className="text-foreground font-medium">vendas locais e online</span>. Indicados para projetos pequenos e médios, revendas em menor escala e amostras pagas.
+                    DisponÃ­veis para <span className="text-foreground font-medium">vendas locais e online</span>. Indicados para projetos pequenos e mÃ©dios, revendas em menor escala e amostras pagas.
                   </p>
                 </div>
               </div>
@@ -480,16 +436,16 @@ const Ecommerce = () => {
                   <Truck className="w-4 h-4 text-accent" />
                 </div>
                 <div>
-                  <p className="font-display text-base text-foreground">500 kg · 1.000 kg</p>
+                  <p className="font-display text-base text-foreground">500 kg Â· 1.000 kg</p>
                   <p className="mt-1 text-sm text-muted-foreground leading-relaxed">
-                    Disponíveis para <span className="text-foreground font-medium">entregas locais</span> (região de atendimento direto da CERMIL Stone). Indicados para gardens, revendas estruturadas, obras e contratos regionais.
+                    DisponÃ­veis para <span className="text-foreground font-medium">entregas locais</span> (regiÃ£o de atendimento direto da CERMIL Stone). Indicados para gardens, revendas estruturadas, obras e contratos regionais.
                   </p>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* ── Granulometrias ── */}
+          {/* â”€â”€ Granulometrias â”€â”€ */}
           <div>
             <p className="text-[10px] uppercase tracking-[0.4em] text-accent mb-8">Granulometrias a pronta entrega</p>
 
@@ -498,17 +454,17 @@ const Ecommerce = () => {
                 {
                   name: "Fino",
                   range: "aproximadamente 5 mm",
-                  desc: "Formato bem fino, próximo a um grão de milho, ideal para pisos drenantes, áreas de circulação externa e aplicações em que a drenagem e o conforto ao pisar são fundamentais.",
+                  desc: "Formato bem fino, prÃ³ximo a um grÃ£o de milho, ideal para pisos drenantes, Ã¡reas de circulaÃ§Ã£o externa e aplicaÃ§Ãµes em que a drenagem e o conforto ao pisar sÃ£o fundamentais.",
                 },
                 {
-                  name: "Médio",
+                  name: "MÃ©dio",
                   range: "faixa em torno de 50 mm",
-                  desc: "Indicado para jardins, paisagismo geral, composições decorativas em canteiros, bordas de caminhos e áreas de destaque.",
+                  desc: "Indicado para jardins, paisagismo geral, composiÃ§Ãµes decorativas em canteiros, bordas de caminhos e Ã¡reas de destaque.",
                 },
                 {
                   name: "Grande",
                   range: "faixa em torno de 100 mm",
-                  desc: "Indicado para pontos focais de paisagismo, contornos de espelhos d'água, delimitação de áreas e composições em que a pedra tenha presença visual mais marcante.",
+                  desc: "Indicado para pontos focais de paisagismo, contornos de espelhos d'Ã¡gua, delimitaÃ§Ã£o de Ã¡reas e composiÃ§Ãµes em que a pedra tenha presenÃ§a visual mais marcante.",
                 },
               ].map((g, i) => (
                 <div key={g.name} className="p-5 border border-border bg-card">
@@ -518,7 +474,7 @@ const Ecommerce = () => {
                     </span>
                     <div>
                       <p className="font-display text-lg text-foreground">
-                        {g.name} <span className="text-muted-foreground font-normal text-sm">— {g.range}</span>
+                        {g.name} <span className="text-muted-foreground font-normal text-sm">â€” {g.range}</span>
                       </p>
                       <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{g.desc}</p>
                     </div>
@@ -527,12 +483,12 @@ const Ecommerce = () => {
               ))}
             </div>
 
-            {/* Nota fora dos padrões */}
+            {/* Nota fora dos padrÃµes */}
             <div className="mt-6 p-5 border border-accent/30 bg-accent/5">
               <p className="text-sm text-foreground leading-relaxed">
-                <span className="font-medium">Fora dos padrões:</span>{" "}
+                <span className="font-medium">Fora dos padrÃµes:</span>{" "}
                 <span className="text-muted-foreground">
-                  Qualquer granulometria fora desses parâmetros será ofertada na modalidade sob consulta, com produção customizada conforme a necessidade do cliente — projetos especiais, contratos industriais, especificações técnicas próprias.
+                  Qualquer granulometria fora desses parÃ¢metros serÃ¡ ofertada na modalidade sob consulta, com produÃ§Ã£o customizada conforme a necessidade do cliente â€” projetos especiais, contratos industriais, especificaÃ§Ãµes tÃ©cnicas prÃ³prias.
                 </span>
               </p>
             </div>
@@ -543,7 +499,7 @@ const Ecommerce = () => {
               className="mt-8 flex items-center justify-center gap-2 w-full py-4 text-xs uppercase tracking-[0.3em] font-medium bg-foreground text-background hover:bg-accent hover:text-accent-foreground transition-colors"
             >
               <ShoppingBag className="w-3.5 h-3.5" />
-              Solicitar orçamento
+              Solicitar orÃ§amento
               <ArrowUpRight className="w-3.5 h-3.5" />
             </Link>
           </div>
@@ -553,20 +509,20 @@ const Ecommerce = () => {
       {/* FOOTER */}
       <footer className="border-t border-border bg-foreground text-background/60">
         <div className="max-w-7xl mx-auto px-6 lg:px-10 py-14 grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-16">
-          {/* Col 1 — marca + endereço */}
+          {/* Col 1 â€” marca + endereÃ§o */}
           <div className="flex flex-col gap-3">
             <div className="flex items-center gap-3">
               <img src={logo} alt="CERMIL" className="h-7 w-auto brightness-0 invert opacity-80" />
               <span className="font-display text-xs tracking-[0.3em] uppercase text-background/80">Stone</span>
             </div>
-            <p className="text-[11px] italic tracking-[0.15em] text-background/40">"Sertão em pedra, mundo em projeto."</p>
+            <p className="text-[11px] italic tracking-[0.15em] text-background/40">"SertÃ£o em pedra, mundo em projeto."</p>
             <div className="flex items-start gap-2 mt-2 text-[11px] text-background/50 leading-relaxed">
               <MapPin className="w-3.5 h-3.5 text-accent mt-0.5 flex-shrink-0" />
-              <span>Vila Salgado dos Moreiras, SN – Cágado, São Gonçalo do Amarante – CE, 62670-000</span>
+              <span>Vila Salgado dos Moreiras, SN â€“ CÃ¡gado, SÃ£o GonÃ§alo do Amarante â€“ CE, 62670-000</span>
             </div>
           </div>
 
-          {/* Col 2 — contato */}
+          {/* Col 2 â€” contato */}
           <div className="flex flex-col gap-3">
             <p className="text-[10px] uppercase tracking-[0.4em] text-accent mb-1">Contato</p>
             <a href="tel:+5585991124238" className="flex items-center gap-2 text-[12px] text-background/60 hover:text-accent transition-colors">
@@ -577,11 +533,11 @@ const Ecommerce = () => {
             </a>
           </div>
 
-          {/* Col 3 — nav + legal */}
+          {/* Col 3 â€” nav + legal */}
           <div className="flex flex-col gap-3 md:items-end">
-            <p className="text-[10px] uppercase tracking-[0.4em] text-accent mb-1">Navegação</p>
+            <p className="text-[10px] uppercase tracking-[0.4em] text-accent mb-1">NavegaÃ§Ã£o</p>
             <Link to="/" className="text-[11px] uppercase tracking-[0.25em] text-background/50 hover:text-accent transition-colors">
-              ← Voltar ao site
+              â† Voltar ao site
             </Link>
             <p className="text-[11px] uppercase tracking-[0.2em] text-background/40 mt-auto">CNPJ 20.150.507/0001-39</p>
           </div>
@@ -591,7 +547,7 @@ const Ecommerce = () => {
         <div className="border-t border-background/10">
           <div className="max-w-7xl mx-auto px-6 lg:px-10 py-4">
             <p className="text-[10px] uppercase tracking-[0.25em] text-background/30">
-              © {new Date().getFullYear()} CERMIL Construção e Mineração. Todos os direitos reservados.
+              Â© {new Date().getFullYear()} CERMIL ConstruÃ§Ã£o e MineraÃ§Ã£o. Todos os direitos reservados.
             </p>
           </div>
         </div>

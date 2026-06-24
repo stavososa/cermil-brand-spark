@@ -1,6 +1,7 @@
+<<<<<<< HEAD
 import logo from "@/assets/logo-cermil.png";
-import hero from "@/assets/hero-quartz.jpg";
-import product from "../../imagens/export.png";
+import hero from "@/assets/seixo-branco-garden.jpg";
+import product from "@/assets/seixo-branco-wood.jpg";
 import operation from "@/assets/operation.jpg";
 import landscape from "@/assets/application-landscape.jpg";
 import gallery1 from "@/assets/gallery-1.png";
@@ -127,7 +128,7 @@ const Index = () => {
               Não somos uma operação paralela, e tampouco uma vitrine improvisada. Somos a expansão natural de
               uma estrutura mineral consolidada, agora orientada ao mercado decorativo e a demandas industriais sob consulta.
             </p>
-            <div className="grid grid-cols-3 gap-8 pt-8 hairline">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 pt-8 hairline">
               {[
                 { k: "Operação", v: "Consolidada" },
                 { k: "Histórico", v: "Recorrente" },
@@ -198,7 +199,7 @@ const Index = () => {
             <div className="lg:col-span-5 grid gap-8">
               {[
                 { t: "Pedras Naturais", d: "Variedades minerais sob consulta para projetos decorativos e técnicos." },
-                { t: "Granulometrias específicas", d: "Faixas e calibrações sob demanda, incluindo referências como 20 a 30 mm." },
+                { t: "Granulometrias específicas", d: "Trabalhamos com faixas de tamanho de referência do mercado e também sob demanda." },
                 { t: "Demandas industriais", d: "Volumes e padrões compatíveis com operações de alta exigência." },
               ].map((c) => (
                 <div key={c.t} className="group p-8 border border-background/10 hover:border-accent/60 transition-colors bg-background/[0.03]">
@@ -293,7 +294,7 @@ const Index = () => {
             </figure>
             <figure className="col-span-12 lg:col-span-4 relative overflow-hidden group">
               <img src={gallery3} alt="Pilha de seixo de quartzo" loading="lazy" className="w-full h-[320px] lg:h-[560px] object-cover transition-transform duration-[1200ms] group-hover:scale-[1.04]" />
-              <figcaption className="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-foreground/90 to-transparent text-[11px] uppercase tracking-[0.3em] text-background/80">Estoque · Quartzo bruto</figcaption>
+              <figcaption className="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-foreground/90 to-transparent text-[11px] uppercase tracking-[0.3em] text-background/80">Estoque · Seixos rajados</figcaption>
             </figure>
             <figure className="col-span-12 relative overflow-hidden group">
               <img src={gallery1} alt="Vista aérea da operação CERMIL" loading="lazy" className="w-full h-[320px] lg:h-[520px] object-cover transition-transform duration-[1200ms] group-hover:scale-[1.04]" />
@@ -399,15 +400,30 @@ const Index = () => {
           </div>
         </div>
       </footer>
+=======
+// Update this page (the content is just a fallback if you fail to update the page)
+
+// IMPORTANT: Fully REPLACE this with your own code
+const PlaceholderIndex = () => {
+  // PLACEHOLDER: Replace this entire return statement with the user's app.
+  // The inline background color is intentionally not part of the design system.
+  return (
+    <div className="flex min-h-screen items-center justify-center" style={{ backgroundColor: '#fcfbf8' }}>
+      <img data-lovable-blank-page-placeholder="REMOVE_THIS" src="/placeholder.svg" alt="Your app will live here!" />
+>>>>>>> c50d4b1 (template: vite_react_shadcn_ts_2026-04-20)
     </div>
   );
 };
 
+<<<<<<< HEAD
 const Field = ({ label, name, type = "text" }: { label: string; name: string; type?: string }) => (
   <div>
     <label htmlFor={name} className="text-[11px] uppercase tracking-[0.3em] text-background/60">{label}</label>
     <input id={name} name={name} type={type} className="mt-2 w-full bg-transparent border-b border-background/30 focus:border-accent focus:outline-none py-3 text-background transition-colors" />
   </div>
 );
+=======
+const Index = PlaceholderIndex;
+>>>>>>> c50d4b1 (template: vite_react_shadcn_ts_2026-04-20)
 
 export default Index;
