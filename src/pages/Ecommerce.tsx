@@ -3,9 +3,9 @@ import { useState, useMemo } from "react";
 import { ArrowLeft, ArrowUpRight, Truck, ShoppingBag, MessageCircle, CheckCircle2, Star, Globe, Package, MapPin, Phone, Mail } from "lucide-react";
 import logo from "@/assets/logo-cermil.png";
 
-import gallery1 from "@/assets/gallery-1.png";
-import gallery2 from "@/assets/gallery-2.png";
-import gallery3 from "@/assets/gallery-3.jpg";
+import seixoBrancoWood from "@/assets/seixo-branco-wood.jpg";
+import seixoRajadoWood from "@/assets/seixo-rajado-wood.jpg";
+import seixoNaturalWood from "@/assets/seixo-natural-wood.jpg";
 
 import ametistas from "@/assets/ecom-ametistas.png";
 import bigRocks from "@/assets/ecom-big-rocks.png";
@@ -59,7 +59,7 @@ const prontaEntregaProducts: ProntaEntregaProduct[] = [
   {
     id: "seixo-branco",
     name: "Seixo Branco",
-    img: gallery1,
+    img: seixoBrancoWood,
     type: "pronta-entrega",
     desc: "Quartzo de alta alvura, indicado para composições de maior contraste e projetos que valorizam iluminação e limpeza visual.",
     granulometrias,
@@ -73,7 +73,7 @@ const prontaEntregaProducts: ProntaEntregaProduct[] = [
   {
     id: "seixo-rajado",
     name: "Seixo Rajado",
-    img: gallery3,
+    img: seixoRajadoWood,
     type: "pronta-entrega",
     desc: "Seixo com variações naturais em tons terrosos e avermelhados, ideal para jardins rústicos e orgânicos.",
     granulometrias,
@@ -87,7 +87,7 @@ const prontaEntregaProducts: ProntaEntregaProduct[] = [
   {
     id: "seixo-natural",
     name: "Seixo Natural (blend)",
-    img: gallery2,
+    img: seixoNaturalWood,
     type: "pronta-entrega",
     desc: "Blend natural das cores da jazida. Visual orgânico e autêntico, com variação equilibrada de tons.",
     granulometrias,

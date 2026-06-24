@@ -148,10 +148,10 @@ async function runMigration() {
     if (novasUrls.length > 0) {
       console.log(`💾 Atualizando tabela 'estoque' para a Placa ${placa}...`);
       
-      // Converte o array para JSON string caso a coluna seja texto/json no banco
+      // O Supabase mapeia arrays JS diretamente para colunas text[]
       const { data, error } = await supabase
         .from('estoque')
-        .update({ fotos: JSON.stringify(novasUrls) })
+        .update({ fotos: novasUrls })
         .eq('Placa', placa);
         
       if (error) {
