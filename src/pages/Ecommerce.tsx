@@ -3,9 +3,17 @@ import { useState, useMemo } from "react";
 import { ArrowLeft, ArrowUpRight, Truck, ShoppingBag, MessageCircle, CheckCircle2, Star, Globe, Package, MapPin, Phone, Mail } from "lucide-react";
 import logo from "@/assets/logo-cermil.png";
 
-import seixoBranco from "@/assets/seixo-branco-sack.jpg";
-import seixoRajado from "@/assets/seixo-rajado-sack.jpg";
-import seixoNatural from "@/assets/seixo-natural-sack.jpg";
+import seixoBrancoSack from "@/assets/seixo-branco-sack.jpg";
+import seixoBrancoWood from "@/assets/seixo-branco-wood.jpg";
+import seixoBrancoGarden from "@/assets/seixo-branco-garden.jpg";
+
+import seixoRajadoSack from "@/assets/seixo-rajado-sack.jpg";
+import seixoRajadoWood from "@/assets/seixo-rajado-wood.jpg";
+import seixoRajadoGarden from "@/assets/seixo-rajado-garden.jpg";
+
+import seixoNaturalSack from "@/assets/seixo-natural-sack.jpg";
+import seixoNaturalWood from "@/assets/seixo-natural-wood.jpg";
+import seixoNaturalGarden from "@/assets/seixo-natural-garden.jpg";
 
 import ametistas from "@/assets/ecom-ametistas.png";
 import bigRocks from "@/assets/ecom-big-rocks.png";
@@ -37,6 +45,7 @@ type ProntaEntregaProduct = {
   desc: string;
   granulometrias: string[];
   badge: string | null;
+  gallery?: string[];
   pricing?: {
     [granulometria: string]: {
       [peso: string]: string;
@@ -59,7 +68,8 @@ const prontaEntregaProducts: ProntaEntregaProduct[] = [
   {
     id: "seixo-branco",
     name: "Seixo Branco",
-    img: seixoBranco,
+    img: seixoBrancoWood,
+    gallery: [seixoBrancoWood, seixoBrancoSack, seixoBrancoGarden],
     type: "pronta-entrega",
     desc: "Quartzo de alta alvura, indicado para composições de maior contraste e projetos que valorizam iluminação e limpeza visual.",
     granulometrias,
@@ -73,7 +83,8 @@ const prontaEntregaProducts: ProntaEntregaProduct[] = [
   {
     id: "seixo-rajado",
     name: "Seixo Rajado",
-    img: seixoRajado,
+    img: seixoRajadoWood,
+    gallery: [seixoRajadoWood, seixoRajadoSack, seixoRajadoGarden],
     type: "pronta-entrega",
     desc: "Seixo com variações naturais em tons terrosos e avermelhados, ideal para jardins rústicos e orgânicos.",
     granulometrias,
@@ -87,7 +98,8 @@ const prontaEntregaProducts: ProntaEntregaProduct[] = [
   {
     id: "seixo-natural",
     name: "Seixo Natural (blend)",
-    img: seixoNatural,
+    img: seixoNaturalWood,
+    gallery: [seixoNaturalWood, seixoNaturalSack, seixoNaturalGarden],
     type: "pronta-entrega",
     desc: "Blend natural das cores da jazida. Visual orgânico e autêntico, com variação equilibrada de tons.",
     granulometrias,
@@ -135,8 +147,10 @@ const ProductCard = ({ product }: { product: Product }) => {
   const isPE = product.type === "pronta-entrega";
   const [selectedWeight, setSelectedWeight] = useState<number | null>(null);
   const [selectedGranulometria, setSelectedGranulometria] = useState<string | null>(null);
+  const [galleryIndex, setGalleryIndex] = useState(0);
   const activeWeight = selectedWeight !== null ? weights[selectedWeight] : null;
-  const displayImg = activeWeight ? activeWeight.img : product.img;
+  const currentProductImg = 'gallery' in product && product.gallery ? product.gallery[galleryIndex] : product.img;
+  const displayImg = activeWeight ? activeWeight.img : currentProductImg;
 
   let priceStr = null;
   if (product.type === "pronta-entrega" && selectedWeight !== null && selectedGranulometria !== null && product.pricing) {
@@ -172,6 +186,17 @@ const ProductCard = ({ product }: { product: Product }) => {
           <div className="absolute inset-0 bg-gradient-to-t from-foreground/30 to-transparent pointer-events-none" />
         )}
       </div>
+
+      {/* Gallery Thumbnails */}
+      {'gallery' in product && product.gallery && !activeWeight && (
+        <div className="flex gap-2 pt-5 px-5 lg:px-6 pb-0">
+          {product.gallery.map((imgUrl, i) => (
+            <button key={i} onClick={() => setGalleryIndex(i)} className={`w-12 h-12 overflow-hidden border-2 transition-colors ${galleryIndex === i ? 'border-foreground' : 'border-border hover:border-foreground/40'}`}>
+              <img src={imgUrl} alt={`Thumbnail ${i + 1}`} className="w-full h-full object-cover" />
+            </button>
+          ))}
+        </div>
+      )}
 
       {/* Content */}
       <div className="p-5 lg:p-6 flex flex-col flex-1 gap-4">
