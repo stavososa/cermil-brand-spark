@@ -1,6 +1,6 @@
 import logo from "@/assets/logo-cermil.png";
-import hero from "@/assets/seixo-branco-garden.jpg";
-import product from "@/assets/seixo-branco-wood.jpg";
+import hero from "@/assets/hero-quartz.jpg";
+import product from "@/assets/branco-1.jpg";
 import operation from "@/assets/operation.jpg";
 import landscape from "@/assets/application-landscape.jpg";
 import gallery1 from "@/assets/gallery-1.png";
@@ -13,7 +13,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background text-foreground font-sans antialiased">
       {/* NAV */}
-      <header className="fixed top-0 inset-x-0 z-50">
+      <header className="absolute top-0 inset-x-0 z-50">
         {/* Topbar de contato */}
         <div className="h-9 bg-foreground border-b border-background/10">
           <div className="max-w-7xl mx-auto px-6 lg:px-10 h-full flex items-center justify-between gap-4">
@@ -282,7 +282,7 @@ const Index = () => {
               </h2>
             </div>
             <p className="lg:col-span-4 lg:col-start-9 text-background/70 leading-relaxed">
-              Imagens reais da estrutura produtiva, do beneficiamento mineral e do material em estoque.
+              Imagens reais da estrutura produtiva, do processamento mineral e do material em estoque.
             </p>
           </div>
 
@@ -293,11 +293,11 @@ const Index = () => {
             </figure>
             <figure className="col-span-12 lg:col-span-4 relative overflow-hidden group">
               <img src={gallery3} alt="Pilha de seixo de quartzo" loading="lazy" className="w-full h-[320px] lg:h-[560px] object-cover transition-transform duration-[1200ms] group-hover:scale-[1.04]" />
-              <figcaption className="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-foreground/90 to-transparent text-[11px] uppercase tracking-[0.3em] text-background/80">Estoque · Seixos rajados</figcaption>
+              <figcaption className="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-foreground/90 to-transparent text-[11px] uppercase tracking-[0.3em] text-background/80">Jazida · Seixos rajados</figcaption>
             </figure>
             <figure className="col-span-12 relative overflow-hidden group">
               <img src={gallery1} alt="Vista aérea da operação CERMIL" loading="lazy" className="w-full h-[320px] lg:h-[520px] object-cover transition-transform duration-[1200ms] group-hover:scale-[1.04]" />
-              <figcaption className="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-foreground/90 to-transparent text-[11px] uppercase tracking-[0.3em] text-background/80">Vista aérea · Beneficiamento</figcaption>
+              <figcaption className="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-foreground/90 to-transparent text-[11px] uppercase tracking-[0.3em] text-background/80">Vista aérea · Processamento</figcaption>
             </figure>
           </div>
         </div>

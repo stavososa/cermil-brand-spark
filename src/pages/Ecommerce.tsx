@@ -5,11 +5,11 @@ import logo from "@/assets/logo-cermil.png";
 
 import seixoBrancoWood from "@/assets/seixo-branco-wood.jpg";
 import seixoRajadoWood from "@/assets/seixo-rajado-wood.jpg";
-import seixoNaturalWood from "@/assets/seixo-natural-wood.jpg";
+import seixoNaturalWood from "@/assets/seixo-natural-madeira.jpg";
 
 import ametistas from "@/assets/ecom-ametistas.png";
 import bigRocks from "@/assets/ecom-big-rocks.png";
-import outrasPedras from "@/assets/ecom-outras-pedras.jpg";
+import outrasPedras1 from "@/assets/outras-pedras-1.png";
 
 import pkg10 from "@/assets/pkg-10kg.jpg";
 import pkg25 from "@/assets/pkg-25kg.jpg";
@@ -120,7 +120,7 @@ const sobConsultaProducts: SobConsultaProduct[] = [
   {
     id: "outras-pedras",
     name: "Outras Pedras Naturais",
-    img: outrasPedras,
+    img: outrasPedras1,
     type: "sob-consulta",
     desc: "Pedras com potencial decorativo singular. Ajustes técnicos para uso seguro: remoção de pontas e planeamento da base.",
     badge: null,
@@ -185,7 +185,7 @@ const ProductCard = ({ product }: { product: Product }) => {
         {/* Granulometrias — pronta entrega only */}
         {isPE && product.type === "pronta-entrega" && (
           <div>
-            <p className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground mb-2">Granulometria disponível</p>
+            <p className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground mb-2">Tamanho disponível</p>
             <div className="flex flex-wrap gap-1.5">
               {product.granulometrias.map((g) => (
                 <button

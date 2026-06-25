@@ -3,7 +3,8 @@ import seixoRajado from "@/assets/ecom-seixo-rajado.png";
 import seixoNatural from "@/assets/ecom-seixo-natural.png";
 import ametistas from "@/assets/ecom-ametistas.png";
 import bigRocks from "@/assets/ecom-big-rocks.png";
-import outrasPedras from "@/assets/ecom-outras-pedras.jpg";
+import outrasPedras1 from "@/assets/outras-pedras-1.png";
+import outrasPedras3 from "@/assets/outras-pedras-3.png";
 import gallery3 from "@/assets/gallery-3.jpg";
 
 import seixoBrancoSack from "@/assets/seixo-branco-sack.jpg";
@@ -14,9 +15,9 @@ import seixoRajadoSack from "@/assets/seixo-rajado-sack.jpg";
 import seixoRajadoWood from "@/assets/seixo-rajado-wood.jpg";
 import seixoRajadoGarden from "@/assets/seixo-rajado-garden.jpg";
 
-import seixoNaturalSack from "@/assets/seixo-natural-sack.jpg";
-import seixoNaturalWood from "@/assets/seixo-natural-wood.jpg";
-import seixoNaturalGarden from "@/assets/seixo-natural-garden.jpg";
+import seixoNaturalSack from "@/assets/seixo-natural-saco.jpg";
+import seixoNaturalWood from "@/assets/seixo-natural-madeira.jpg";
+import seixoNaturalGarden from "@/assets/seixo-natural-quintal.jpg";
 
 import ametista1 from "@/assets/ametista-1.jpg";
 import ametista2 from "@/assets/ametista-2.jpg";
@@ -170,10 +171,11 @@ export const sobConsultaProducts: SobConsultaProduct[] = [
   {
     id: "outras-pedras",
     name: "Outras Pedras Naturais",
-    img: outrasPedras,
+    img: outrasPedras1,
     type: "sob-consulta",
     desc: "Pedras com potencial decorativo singular. Ajustes técnicos para uso seguro: remoção de pontas e planeamento da base.",
     badge: null,
+    gallery: [outrasPedras1, outrasPedras3],
   },
 ];
 
