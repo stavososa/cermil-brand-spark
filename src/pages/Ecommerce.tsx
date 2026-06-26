@@ -345,10 +345,10 @@ const Ecommerce = () => {
                 <CheckCircle2 className="w-3.5 h-3.5 text-accent" /> Origem certificada
               </span>
               <span className="flex items-center gap-1.5">
-                <Truck className="w-3.5 h-3.5 text-accent" /> Entrega regional
+                <Truck className="w-3.5 h-3.5 text-accent" /> Entrega em todo o Brasil
               </span>
               <span className="flex items-center gap-1.5">
-                <Star className="w-3.5 h-3.5 text-accent" /> Multinacionais atendidas
+                <Star className="w-3.5 h-3.5 text-accent" /> Capacidade para grandes volumes
               </span>
             </div>
           </div>
